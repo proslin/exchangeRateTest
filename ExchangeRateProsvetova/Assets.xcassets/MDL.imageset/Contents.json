@@ -1,17 +1,16 @@
 {
   "images" : [
     {
-      "filename" : "JPY.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "JPY-2.png",
+      "filename" : "MDL-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "JPY-1.png",
+      "filename" : "MDL-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

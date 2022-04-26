@@ -20,6 +20,12 @@ class CurrencyCellXib: UITableViewCell {
     @IBOutlet weak var detailDeltaSaleLabel: UILabel!
     var currencyCodeIsHidden = false
     
+    override var isSelected: Bool {
+        didSet {
+            
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -52,7 +58,21 @@ class CurrencyCellXib: UITableViewCell {
             let formatter = NumberFormatter()
             formatter.numberStyle = .currency
             formatter.maximumFractionDigits = 2
-            formatter.currencySymbol = currencyCode == "RUR" ? "₽ " : ""
+            switch currencyCode {
+            case CurrencyCodes.rur.rawValue:
+                formatter.currencySymbol = "₽ "
+            case CurrencyCodes.usd.rawValue:
+                formatter.currencySymbol = "$ "
+            case CurrencyCodes.chf.rawValue:
+                formatter.currencySymbol = "₣ "
+            case CurrencyCodes.eur.rawValue:
+                formatter.currencySymbol = "€ "
+            case CurrencyCodes.gbp.rawValue:
+                formatter.currencySymbol = "£ "
+            default:
+                formatter.currencySymbol = ""
+            }
+            //formatter.currencySymbol = currencyCode == "RUR" ? "₽ " : ""
             let numberString = formatter.string(from: NSNumber(value: value)) ?? "-"
             let string = "\(numberString)"
             return string
@@ -89,6 +109,11 @@ class CurrencyCellXib: UITableViewCell {
         
         if currency.name.contains("/") {
             currencyName.text = currencyNameFormatter(currencyName: currency.name)
+            //currencyName.setLineSpacing(lineSpacing: 1.5)
+           // currencyName.setTranslatesAutoresizingMaskIntoConstraints(false)
+             //self.view.addSubview(Label)
+
+           // currencyName.addConstraint(NSLayoutConstraint(item: currencyName ?? "", attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40))
             currencyCodeIsHidden = true
         } else {
             currencyName.text = currency.name

@@ -109,18 +109,49 @@ extension RatesViewController: UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        indexPath == selectedIndex ? 130 : 70
+       
+        let isSelected = tableView.indexPathForSelectedRow?.contains(indexPath.row) ?? false
+        return isSelected ? 130 : 70
+         //indexPath == selectedIndex ? 130 : 70
     }
 }
 
 extension RatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       
-        selectedIndex != indexPath ? (selectedIndex = indexPath) : (selectedIndex = [])
         
-        tableView.beginUpdates()
-        tableView.endUpdates()
+//        if tableView.indexPathForSelectedRow?.contains(indexPath.row) ?? false {
+//            tableView.deselectRow(at: indexPath, animated: true)
+//        } else {
+      //  tableView.selectRow(at: indexPath, animated: true, scrollPosition: .none)
+       // }
+       // tableView.deselectRow(at: indexPath, animated: true)
+        
+        selectedIndex != indexPath ? (selectedIndex = indexPath) : (selectedIndex = [])
+        tableView.performBatchUpdates(nil)
+//        tableView.beginUpdates()
+//        tableView.endUpdates()
     }
+    
+    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.performBatchUpdates(nil)
+    }
+    
+    
+//    private override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) -> IndexPath? {
+//        super.tableView(tableView, didSelectRowAt: indexPath)
+//        if tableView.indexPathsForSelectedRows?.contains(indexPath) ?? false {
+//           tableView.deselectRow(at: indexPath, animated: true)
+//           return nil
+//        }
+//
+//        return indexPath
+//    }
+//
+//
+//    override func tableView(_ tableView: UITableView, willDeselectRowAt indexPath: IndexPath) -> IndexPath? {
+//        return nil
+//    }
     
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {

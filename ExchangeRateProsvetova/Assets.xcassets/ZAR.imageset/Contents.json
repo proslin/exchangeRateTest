@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "JPY.png",
+      "filename" : "ZAR.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "JPY-2.png",
+      "filename" : "ZAR-1.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "JPY-1.png",
+      "filename" : "ZAR-2.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

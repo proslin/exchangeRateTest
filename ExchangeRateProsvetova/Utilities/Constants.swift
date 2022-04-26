@@ -6,3 +6,11 @@
 //
 
 import UIKit
+
+enum CurrencyCodes: String, Codable {
+    case eur = "EUR"
+    case gbp = "GBP"
+    case rur = "RUR"
+    case usd = "USD"
+    case chf = "CHF"
+}

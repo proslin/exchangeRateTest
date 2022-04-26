@@ -26,6 +26,7 @@
 		3E77FEE027F2E3D6000B0C89 /* RatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E77FEDF27F2E3D6000B0C89 /* RatesVC.swift */; };
 		3E7924E327FADA3A00D4138B /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7924E227FADA3A00D4138B /* Constants.swift */; };
 		3E7924E627FB337600D4138B /* CurrencyCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7924E527FB337600D4138B /* CurrencyCellView.swift */; };
+		3E7986A02816D95700D82CF0 /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E79869F2816D95700D82CF0 /* UILabel+Ext.swift */; };
 		3E7B939D28046A1B0096195F /* DataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E7B939C28046A1B0096195F /* DataLoadingVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +52,7 @@
 		3E77FEDF27F2E3D6000B0C89 /* RatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatesVC.swift; sourceTree = "<group>"; };
 		3E7924E227FADA3A00D4138B /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		3E7924E527FB337600D4138B /* CurrencyCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellView.swift; sourceTree = "<group>"; };
+		3E79869F2816D95700D82CF0 /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		3E7B939C28046A1B0096195F /* DataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataLoadingVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				3E758CE827FEFED60090CA07 /* UIHelper.swift */,
 				3E758CEA27FF0A420090CA07 /* String+Ext.swift */,
 				3E15E13228116B5300651D17 /* UIViewController+Ext.swift */,
+				3E79869F2816D95700D82CF0 /* UILabel+Ext.swift */,
 			);
 			path = Extansions;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				3E758CEB27FF0A420090CA07 /* String+Ext.swift in Sources */,
 				3E703DA427F600840052E2B9 /* CurrencyCell.swift in Sources */,
 				3E77FEE027F2E3D6000B0C89 /* RatesVC.swift in Sources */,
+				3E7986A02816D95700D82CF0 /* UILabel+Ext.swift in Sources */,
 				3E77FECE27F2E375000B0C89 /* SceneDelegate.swift in Sources */,
 				3E15E13328116B5300651D17 /* UIViewController+Ext.swift in Sources */,
 				3E7924E327FADA3A00D4138B /* Constants.swift in Sources */,
