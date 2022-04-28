@@ -49,6 +49,11 @@ class CurrencyCellXib: UITableViewCell {
         layer.shadowRadius = 4
         layer.shadowOffset = CGSize(width: 0, height: 1)
         layer.shadowColor = UIColor.systemGray.cgColor
+        
+       // layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
+//        layer.shouldRasterize = true
+//        layer.rasterizationScale = UIScreen.main.scale
+        
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 20
     }
@@ -85,38 +90,19 @@ class CurrencyCellXib: UITableViewCell {
             newStr.insert(contentsOf: "\n", at: currencyName.index(index, offsetBy: 2))
             
             return newStr
-           
-//            if currencyName.isEmpty {
-//                return "Нет названия валюты"
-//            } else {
-//            var formattedCurrencyName = currencyName
-//            let index = currencyName.firstIndex(of: "/")
-//            guard let indexOpt = index else {
-//                currencyCodeIsHidden = false
-//                return formattedCurrencyName}
-//
-//            currencyCodeIsHidden = true
-//            formattedCurrencyName.insert(contentsOf: "\n", at: currencyName.index(indexOpt, offsetBy: 2))
-//            return formattedCurrencyName
-//            }
-
         }
     
     
     func set(currency: Currency) {
         flagIV.image = UIImage(named: currency.currMnemTo)
-        currencyName.textColor  = .gray
+        //currencyName.textColor  = .gray
         
         if currency.name.contains("/") {
             currencyName.text = currencyNameFormatter(currencyName: currency.name)
-            //currencyName.setLineSpacing(lineSpacing: 1.5)
-           // currencyName.setTranslatesAutoresizingMaskIntoConstraints(false)
-             //self.view.addSubview(Label)
-
-           // currencyName.addConstraint(NSLayoutConstraint(item: currencyName ?? "", attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 40))
             currencyCodeIsHidden = true
         } else {
             currencyName.text = currency.name
+            currencyCodeIsHidden = false
         }
         
         //currencyName.text = currencyNameFormatter(currencyName: currency.name)

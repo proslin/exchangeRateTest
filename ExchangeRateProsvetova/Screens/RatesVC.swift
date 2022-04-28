@@ -110,9 +110,9 @@ extension RatesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        
-        let isSelected = tableView.indexPathForSelectedRow?.contains(indexPath.row) ?? false
-        return isSelected ? 130 : 70
-         //indexPath == selectedIndex ? 130 : 70
+//        let isSelected = tableView.indexPathForSelectedRow?.contains(indexPath.row) ?? false
+//        return isSelected ? 130 : 70
+         indexPath == selectedIndex ? 115 : 70
     }
 }
 
@@ -126,8 +126,16 @@ extension RatesViewController: UITableViewDelegate {
        // }
        // tableView.deselectRow(at: indexPath, animated: true)
         
-        selectedIndex != indexPath ? (selectedIndex = indexPath) : (selectedIndex = [])
+        if selectedIndex != indexPath {
+            selectedIndex = indexPath
+        } else {
+            selectedIndex = []
+        }
+        
         tableView.performBatchUpdates(nil)
+        
+        //(selectedIndex = indexPath) : (selectedIndex = [])
+        
 //        tableView.beginUpdates()
 //        tableView.endUpdates()
     }
