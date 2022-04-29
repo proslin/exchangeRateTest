@@ -17,7 +17,6 @@ class NetworkManager {
     }
     
     
-   // func getRates(completed: @escaping (Result<[Currency], ERError>) -> Void) {
         func getRates(completed: @escaping (Result<Initial, ERError>) -> Void) {
         guard let url = URL(string: baseURL) else {
             completed(.failure(.unableToComplete))
@@ -56,7 +55,6 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 let decodeInitial = try decoder.decode(Initial.self, from: data)
-                //completed(.success(decodeInitial.rates))
                 completed(.success(decodeInitial))
             } catch {
                 completed(.failure(.invalidData))

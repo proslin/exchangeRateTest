@@ -18,11 +18,13 @@ class CurrencyCellXib: UITableViewCell {
     @IBOutlet weak var detailDeltaBuyLabel: UILabel!
     @IBOutlet weak var detailSaleLabel: UILabel!
     @IBOutlet weak var detailDeltaSaleLabel: UILabel!
+    @IBOutlet var collapsetConstraint: NSLayoutConstraint!
+    @IBOutlet var expandedConstraint: NSLayoutConstraint!
     var currencyCodeIsHidden = false
     
     override var isSelected: Bool {
         didSet {
-            
+            updateAppearance()
         }
     }
     
@@ -42,6 +44,11 @@ class CurrencyCellXib: UITableViewCell {
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 10))
     }
         
+    func updateAppearance() {
+        collapsetConstraint.isActive = !isSelected
+        expandedConstraint.isActive = isSelected
+    }
+    
     private func configure() {
         backgroundColor = .clear
         layer.masksToBounds = false
@@ -56,6 +63,8 @@ class CurrencyCellXib: UITableViewCell {
         
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 20
+        
+        updateAppearance()
     }
     
         func formattedPrice(value: Double, currencyCode: String) -> String {
@@ -77,7 +86,6 @@ class CurrencyCellXib: UITableViewCell {
             default:
                 formatter.currencySymbol = ""
             }
-            //formatter.currencySymbol = currencyCode == "RUR" ? "₽ " : ""
             let numberString = formatter.string(from: NSNumber(value: value)) ?? "-"
             let string = "\(numberString)"
             return string
@@ -110,15 +118,13 @@ class CurrencyCellXib: UITableViewCell {
                 if currencyCodeIsHidden {
                     currencyLetterCode.text = ""
                 } else {
-                    currencyLetterCode.textColor = .darkGray
                     if currency.basic.convertToDouble() > 1.0 {
                         currencyLetterCode.text = "\(currency.currMnemTo)    \(currency.basic) единиц "
                     } else {
                         currencyLetterCode.text = currency.currMnemTo
                     }
                 }
-        
-                currencyBuy.textColor = .darkGray
+
                 currencyBuy.text =   formattedPrice(value: currency.buy.convertToDouble(), currencyCode: currency.currMnemFrom)
         
                 let deltaBuy = currency.deltaBuy.convertToDouble()

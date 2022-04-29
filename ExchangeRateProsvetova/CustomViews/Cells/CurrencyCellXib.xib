@@ -28,8 +28,8 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M8P-rd-1tO">
-                                <rect key="frame" x="48" y="0.0" width="41.5" height="20.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="48" y="0.0" width="37.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" systemColor="systemGray2Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -113,6 +113,7 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="I5f-cL-QqV" secondAttribute="bottom" constant="7" id="1Im-LY-1o9"/>
                             <constraint firstAttribute="trailing" secondItem="nHZ-iT-2gC" secondAttribute="trailing" id="D0K-3T-EIw"/>
                             <constraint firstItem="I5f-cL-QqV" firstAttribute="leading" secondItem="duM-0G-hfa" secondAttribute="leading" constant="50" id="Ge8-4H-y6V"/>
                             <constraint firstItem="I5f-cL-QqV" firstAttribute="top" secondItem="nHZ-iT-2gC" secondAttribute="bottom" id="Gq0-Fu-9JQ"/>
@@ -123,10 +124,11 @@
                     </view>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="bottom" secondItem="ZHj-aA-k9s" secondAttribute="bottom" priority="250" constant="50" id="6WY-Li-LxF"/>
                     <constraint firstItem="ZHj-aA-k9s" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="GfW-vN-sEx"/>
                     <constraint firstAttribute="trailing" secondItem="duM-0G-hfa" secondAttribute="trailing" constant="10" id="WT5-Eo-21w"/>
                     <constraint firstItem="duM-0G-hfa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="cg0-sR-bOg"/>
-                    <constraint firstAttribute="bottom" secondItem="duM-0G-hfa" secondAttribute="bottom" id="dbf-JC-xk1"/>
+                    <constraint firstAttribute="bottom" secondItem="duM-0G-hfa" secondAttribute="bottom" priority="250" id="dbf-JC-xk1"/>
                     <constraint firstItem="ZHj-aA-k9s" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="kfJ-l6-hyj"/>
                     <constraint firstAttribute="trailing" secondItem="ZHj-aA-k9s" secondAttribute="trailing" constant="10" id="ptG-At-Dzd"/>
                     <constraint firstItem="duM-0G-hfa" firstAttribute="top" secondItem="ZHj-aA-k9s" secondAttribute="bottom" constant="7" id="ry9-bg-3Qr"/>
@@ -134,6 +136,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="collapsetConstraint" destination="6WY-Li-LxF" id="deg-BY-6nB"/>
                 <outlet property="currencyBuy" destination="wCP-Qb-LIT" id="1Ts-Ms-edc"/>
                 <outlet property="currencyLetterCode" destination="vgy-74-MDP" id="bXo-3j-D6q"/>
                 <outlet property="currencyName" destination="M8P-rd-1tO" id="cB9-39-Yxk"/>
@@ -141,6 +144,7 @@
                 <outlet property="detailDeltaBuyLabel" destination="Bt4-uP-FPM" id="bR3-9r-eP9"/>
                 <outlet property="detailDeltaSaleLabel" destination="y7o-ze-Nsf" id="WgI-pd-ASA"/>
                 <outlet property="detailSaleLabel" destination="k8z-Ax-G7Q" id="FUW-V0-ACh"/>
+                <outlet property="expandedConstraint" destination="dbf-JC-xk1" id="VFE-0J-kJ6"/>
                 <outlet property="flagIV" destination="QNs-lR-l8A" id="E4l-1s-ifT"/>
             </connections>
             <point key="canvasLocation" x="-69.565217391304358" y="19.419642857142858"/>
