@@ -7,8 +7,8 @@
 
 import UIKit
 
-class RatesViewController: DataLoadingVC {
-    
+class RatesViewController: UIViewController {
+    @IBOutlet weak var loadingDateLabel: UILabel!
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
@@ -16,6 +16,7 @@ class RatesViewController: DataLoadingVC {
         }
     }
     
+    var activityIndicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
     
     let refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -23,13 +24,11 @@ class RatesViewController: DataLoadingVC {
         return refreshControl
     }()
     
-    @IBOutlet weak var loadingDateLabel: UILabel!
     
     var ratesArray: [Currency] = []
-    
     var selectedIndex: IndexPath = []
-   // var cellShouldGrow: Bool = true
-
+    
+    //MARK: Life cicle
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none
@@ -42,28 +41,27 @@ class RatesViewController: DataLoadingVC {
         
     }
     
-    @objc func refresh(sender: UIRefreshControl) {
-        getRates()
-    }
-    
-    func configureLoadingDate(loadingDate: String) {
+    //MARK: Private methods
+    private func configureLoadingDate(loadingDate: String) {
         DispatchQueue.main.async {
             self.loadingDateLabel.text = loadingDate.convertToDisplayFormat()
-        }        
+        }
     }
     
-    func getRates() {
-        showLoadingView()
-
+    private func getRates() {
+        showSpinner()
+        
         NetworkManager.shared.getRates() { [weak self] result in
             guard let self = self else { return }
-            self.dismissLoadingView()
-
+            DispatchQueue.main.async {
+                self.removeSpinner()
+            }            
+            
             switch result {
             case .success(let model):
                 self.updateUI(with: model)
                 DispatchQueue.main.async {
-                  self.refreshControl.endRefreshing()
+                    self.refreshControl.endRefreshing()
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
@@ -73,9 +71,8 @@ class RatesViewController: DataLoadingVC {
             }
         }
     }
- 
-    func updateUI(with model: Initial) {
-        
+    
+    private func updateUI(with model: Initial) {
         if model.rates.isEmpty {
             presentAlertVC(title: "Список пуст", message: ERError.rateIsEmpty.rawValue)
         } else {
@@ -88,35 +85,33 @@ class RatesViewController: DataLoadingVC {
         }
     }
     
-    
+    @objc func refresh(sender: UIRefreshControl) {
+        getRates()
+    }
 }
 
-
+//MARK: - UITableViewDataSource
 extension RatesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ratesArray.count
+        ratesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CurrencyCellXib.self)) as! CurrencyCellXib
         let currencyRate = ratesArray[indexPath.row]
         cell.set(currency: currencyRate)
-
+        
         return cell
     }
     
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       
-         indexPath == selectedIndex ? 115 : 70
+        indexPath == selectedIndex ? 115 : 70
     }
 }
 
+//MARK: - UITableViewDelegate
 extension RatesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        
         if selectedIndex != indexPath {
             selectedIndex = indexPath
         } else {
@@ -124,7 +119,6 @@ extension RatesViewController: UITableViewDelegate {
         }
         
         tableView.performBatchUpdates(nil)
-        
     }
     
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {

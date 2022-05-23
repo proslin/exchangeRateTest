@@ -23,18 +23,8 @@ extension String {
     
     func convertToDisplayFormat() -> String {
         guard let date = self.convertToDate() else { return "N/A"}
+        
         return date.convertToDayTimeFormat()
-    }
-    
-    
-    func lineSpaced(_ spacing: CGFloat) -> NSAttributedString {
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.lineSpacing = spacing
-        
-        
-        let attributedString = NSAttributedString(string: self, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])        
-        
-        return attributedString
     }
     
 }

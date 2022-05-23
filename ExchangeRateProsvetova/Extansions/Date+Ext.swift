@@ -12,7 +12,7 @@ extension Date {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "d MMMM HH:mm:ss"
         dateFormatter.locale = Locale(identifier: "ru_RU")
-        return dateFormatter.string(from: self)
-        
+            
+        return dateFormatter.string(from: self)        
     }
 }

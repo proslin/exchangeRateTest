@@ -51,15 +51,7 @@ class CurrencyCellXib: UITableViewCell {
     
     private func configure() {
         backgroundColor = .clear
-        layer.masksToBounds = false
-        layer.shadowOpacity = 0.23
-        layer.shadowRadius = 4
-        layer.shadowOffset = CGSize(width: 0, height: 1)
-        layer.shadowColor = UIColor.systemGray.cgColor
-        
-       // layer.shadowPath = UIBezierPath(roundedRect: bounds, cornerRadius: 4).cgPath
-//        layer.shouldRasterize = true
-//        layer.rasterizationScale = UIScreen.main.scale
+        self.dropShadow(color: .systemGray, opacity: 0.23, offSet: CGSize(width: 0, height: 1), radius: 4, scale: true)
         
         contentView.backgroundColor = .systemBackground
         contentView.layer.cornerRadius = 20
@@ -103,8 +95,6 @@ class CurrencyCellXib: UITableViewCell {
     
     func set(currency: Currency) {
         flagIV.image = UIImage(named: currency.currMnemTo)
-        //currencyName.textColor  = .gray
-        
         if currency.name.contains("/") {
             currencyName.text = currencyNameFormatter(currencyName: currency.name)
             currencyCodeIsHidden = true
@@ -112,8 +102,6 @@ class CurrencyCellXib: UITableViewCell {
             currencyName.text = currency.name
             currencyCodeIsHidden = false
         }
-        
-        //currencyName.text = currencyNameFormatter(currencyName: currency.name)
         
                 if currencyCodeIsHidden {
                     currencyLetterCode.text = ""
