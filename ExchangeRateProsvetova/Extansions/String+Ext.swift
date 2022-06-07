@@ -27,5 +27,13 @@ extension String {
         return date.convertToDayTimeFormat()
     }
     
+    func currencyNameFormatter() -> String {
+        guard let index = self.firstIndex(of: "/") else { return self }
+        
+        var newStr = self
+        newStr.insert(contentsOf: "\n", at: self.index(index, offsetBy: 2))
+        
+        return newStr
+    }
 }
 

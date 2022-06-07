@@ -42,11 +42,11 @@ class RatesViewController: UIViewController {
     }
     
     //MARK: Private methods
-    private func configureLoadingDate(loadingDate: String) {
-        DispatchQueue.main.async {
-            self.loadingDateLabel.text = loadingDate.convertToDisplayFormat()
-        }
-    }
+//    private func configureLoadingDate(loadingDate: String) {
+//        DispatchQueue.main.async {
+//            self.loadingDateLabel.text = loadingDate.convertToDisplayFormat()
+//        }
+//    }
     
     private func getRates() {
         showSpinner()
@@ -78,7 +78,7 @@ class RatesViewController: UIViewController {
         } else {
             self.ratesArray = model.rates
             DispatchQueue.main.async {
-                self.loadingDateLabel.text = model.downloadDate
+                self.loadingDateLabel.text = model.downloadDate.convertToDisplayFormat()
                 self.tableView.reloadData()
                 self.view.bringSubviewToFront(self.tableView)
             }

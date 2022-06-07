@@ -83,20 +83,11 @@ class CurrencyCellXib: UITableViewCell {
             return string
         }
     
-        func currencyNameFormatter(currencyName: String) -> String {
-            guard let index = currencyName.firstIndex(of: "/") else { return currencyName }
-            
-            var newStr = currencyName
-            newStr.insert(contentsOf: "\n", at: currencyName.index(index, offsetBy: 2))
-            
-            return newStr
-        }
-    
     
     func set(currency: Currency) {
         flagIV.image = UIImage(named: currency.currMnemTo)
         if currency.name.contains("/") {
-            currencyName.text = currencyNameFormatter(currencyName: currency.name)
+            currencyName.text = currency.name.currencyNameFormatter()
             currencyCodeIsHidden = true
         } else {
             currencyName.text = currency.name
