@@ -34,6 +34,12 @@ class ExchangeRateProsvetovaTests: XCTestCase {
         XCTAssertEqual(resultCurrencyName, "Доллар США / \nШвейцарский франк")
     }
     
+    func testformattedPrice() throws {
+        let inputPrice = 63.0000
+        let inputCurrencyCode = "EUR"
+        let formattedPrice = UIHelper.formattedPrice(value: inputPrice, currencyCode: inputCurrencyCode)
+        XCTAssertEqual(formattedPrice, "€ 63.00")
+    }
     
 
     func testPerformanceExample() throws {

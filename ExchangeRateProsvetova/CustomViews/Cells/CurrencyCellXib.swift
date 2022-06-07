@@ -59,30 +59,6 @@ class CurrencyCellXib: UITableViewCell {
         updateAppearance()
     }
     
-        func formattedPrice(value: Double, currencyCode: String) -> String {
-    
-            let formatter = NumberFormatter()
-            formatter.numberStyle = .currency
-            formatter.maximumFractionDigits = 2
-            switch currencyCode {
-            case CurrencyCodes.rur.rawValue:
-                formatter.currencySymbol = "₽ "
-            case CurrencyCodes.usd.rawValue:
-                formatter.currencySymbol = "$ "
-            case CurrencyCodes.chf.rawValue:
-                formatter.currencySymbol = "₣ "
-            case CurrencyCodes.eur.rawValue:
-                formatter.currencySymbol = "€ "
-            case CurrencyCodes.gbp.rawValue:
-                formatter.currencySymbol = "£ "
-            default:
-                formatter.currencySymbol = ""
-            }
-            let numberString = formatter.string(from: NSNumber(value: value)) ?? "-"
-            let string = "\(numberString)"
-            return string
-        }
-    
     
     func set(currency: Currency) {
         flagIV.image = UIImage(named: currency.currMnemTo)
@@ -104,7 +80,7 @@ class CurrencyCellXib: UITableViewCell {
                     }
                 }
 
-                currencyBuy.text =   formattedPrice(value: currency.buy.convertToDouble(), currencyCode: currency.currMnemFrom)
+                currencyBuy.text = UIHelper.formattedPrice(value: currency.buy.convertToDouble(), currencyCode: currency.currMnemFrom)
         
                 let deltaBuy = currency.deltaBuy.convertToDouble()
                 detailDeltaBuyLabel.textColor = deltaBuy > 0 ? .systemRed : .systemGreen
