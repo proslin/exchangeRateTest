@@ -11,7 +11,6 @@
 		3E614A5327F6FE54001F3F64 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E614A5227F6FE54001F3F64 /* NetworkManager.swift */; };
 		3E614A5627F70304001F3F64 /* ERError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E614A5527F70304001F3F64 /* ERError.swift */; };
 		3E63416E284F29D200010A95 /* ExchangeRateProsvetovaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E63416D284F29D200010A95 /* ExchangeRateProsvetovaTests.swift */; };
-		3E6660B5284F70D70036A5F8 /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E6660B4284F70D70036A5F8 /* UIHelper.swift */; };
 		3E66A8A6280EBFD30094A73D /* CurrencyCellXib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E66A8A4280EBFD30094A73D /* CurrencyCellXib.swift */; };
 		3E66A8A7280EBFD30094A73D /* CurrencyCellXib.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E66A8A5280EBFD30094A73D /* CurrencyCellXib.xib */; };
 		3E703DA027F5FE7D0052E2B9 /* Initial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E703D9F27F5FE7D0052E2B9 /* Initial.swift */; };
@@ -44,7 +43,6 @@
 		3E614A5527F70304001F3F64 /* ERError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ERError.swift; sourceTree = "<group>"; };
 		3E63416B284F29D200010A95 /* ExchangeRateProsvetovaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ExchangeRateProsvetovaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E63416D284F29D200010A95 /* ExchangeRateProsvetovaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRateProsvetovaTests.swift; sourceTree = "<group>"; };
-		3E6660B4284F70D70036A5F8 /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
 		3E66A8A4280EBFD30094A73D /* CurrencyCellXib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyCellXib.swift; sourceTree = "<group>"; };
 		3E66A8A5280EBFD30094A73D /* CurrencyCellXib.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyCellXib.xib; sourceTree = "<group>"; };
 		3E703D9F27F5FE7D0052E2B9 /* Initial.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Initial.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 			children = (
 				3E614A5527F70304001F3F64 /* ERError.swift */,
 				3E7924E227FADA3A00D4138B /* Constants.swift */,
-				3E6660B4284F70D70036A5F8 /* UIHelper.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -312,7 +309,6 @@
 				3E77FECE27F2E375000B0C89 /* SceneDelegate.swift in Sources */,
 				3E15E13328116B5300651D17 /* UIViewController+Ext.swift in Sources */,
 				3E7924E327FADA3A00D4138B /* Constants.swift in Sources */,
-				3E6660B5284F70D70036A5F8 /* UIHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -35,18 +35,18 @@ class ExchangeRateProsvetovaTests: XCTestCase {
     }
     
     func testformattedPrice() throws {
-        let inputPrice = 63.0000
+        let inputPrice = "63.0000"
         let inputCurrencyCode = "EUR"
-        let formattedPrice = UIHelper.formattedPrice(value: inputPrice, currencyCode: inputCurrencyCode)
+        let formattedPrice = inputPrice.formattedPrice(currencyCode: inputCurrencyCode)
         XCTAssertEqual(formattedPrice, "€ 63.00")
     }
     
 
     func testPerformanceExample() throws {
         // This is an example of a performance test case.
-        let inputDate = "07.06.2022 09:26:26"
+       
         measure {
-            let resultDate = inputDate.convertToDisplayFormat()
+         
         }
     }
 

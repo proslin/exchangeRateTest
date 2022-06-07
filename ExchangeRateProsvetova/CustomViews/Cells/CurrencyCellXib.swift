@@ -80,7 +80,8 @@ class CurrencyCellXib: UITableViewCell {
                     }
                 }
 
-                currencyBuy.text = UIHelper.formattedPrice(value: currency.buy.convertToDouble(), currencyCode: currency.currMnemFrom)
+        currencyBuy.text = currency.buy.formattedPrice(currencyCode: currency.currMnemFrom)
+    
         
                 let deltaBuy = currency.deltaBuy.convertToDouble()
                 detailDeltaBuyLabel.textColor = deltaBuy > 0 ? .systemRed : .systemGreen
